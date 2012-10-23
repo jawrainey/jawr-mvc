@@ -1,0 +1,400 @@
+/*   _       _ _ _   
+    | |     |  _  \  
+    | |     | |_| |  
+ _  | |     |  _  /  
+| |_| |  _  | | \ \  
+\_____/ |_| |_|  \_\ 
+
+    Title:    MiniJAWR
+    Author:   @jawrainey
+    Version:  0.1
+*/
+
+/*-------------------- $RESET -------------------*/
+
+* { margin: 0; padding: 0; }
+
+article, aside, details, footer, header, menu,
+nav, section, label, input, pre, time  {
+    display: block;
+}
+
+ol, ul { list-style: none; }
+
+li { list-style-type: square; }
+
+/*-------------------- $FONT AWESOME -------------------*/
+
+@font-face {
+    font-family: "FontAwesome";
+    src: url('../fonts/awesome/fontawesome-webfont.eot');
+    src: url('../fonts/awesome/fontawesome-webfont.eot?#iefix') format('eot'),
+         url('../fonts/awesome/fontawesome-webfont.woff') format('woff'),
+         url('../fonts/awesome/fontawesome-webfont.ttf') format('truetype'),
+         url('../fonts/awesome/fontawesome-webfont.svg#FontAwesome') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    text-decoration: inherit;
+}
+
+a [class^="icon-"], a [class*=" icon-"] {
+    display: inline-block;
+    text-decoration: inherit;
+}
+
+.icon-large:before {
+    vertical-align: top;
+    font-size: 1.3333333333333333em;
+}
+
+.btn [class^="icon-"], .btn [class*=" icon-"] {
+    line-height: .9em;
+}
+
+li [class^="icon-"], li [class*=" icon-"] {
+    display: inline-block;
+    width: 1.25em;
+    text-align: center;
+}
+
+li .icon-large[class^="icon-"], li .icon-large[class*=" icon-"] {
+    width: 1.875em;
+}
+
+li[class^="icon-"], li[class*=" icon-"] {
+    margin-left: 0;
+    list-style-type: none;
+}
+
+li[class^="icon-"]:before, li[class*=" icon-"]:before {
+    text-indent: -2em;
+    text-align: center;
+}
+
+li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
+    text-indent: -1.3333333333333333em;
+}
+
+.icon-trash:before    { content: "\f014"; }
+.icon-pencil:before   { content: "\f040"; }
+.icon-tags:before     { content: "\f02c"; }
+.icon-link:before     { content: "\f0c1"; }
+.icon-signout:before  { content: "\f08b"; }
+
+/*-------------------- $GOOGLE PRETTIFY -------------------*/
+
+.pln { color: #000; }
+@media screen { 
+    .str { color: #080 }
+    .kwd { color: #008 }
+    .com { color: #800 }
+    .typ { color: #606 }
+    .lit { color: #066 }
+    .pun,
+    .opn,
+    .clo { color: #660 }
+    .tag { color: #008 }
+    .atn { color: #606 }
+    .atv { color: #080 }
+    .dec,
+    .var { color: #606 }
+    .fun { color: red }
+}
+@media print,projection { 
+    .str { color: #060 }
+    .kwd {
+        color: #006;
+    }
+    .com {
+        color: #600;
+    }
+    .typ {
+        color: #404;
+    }
+    .lit { color: #044 }
+    .pun,
+    .opn,
+    .clo { color: #440 }
+    .tag { color: #006 }
+    .atn { color: #404 }
+    .atv { color: #060 }
+}
+
+/*-------------------- $SELECTIONS---------------*/
+
+::-moz-selection {
+    color: #FFF;
+    background: #EF7901;
+}
+
+::selection {
+    color: #FFF;
+    background: #EF7901;
+}
+
+/*-------------------- $ROOT --------------------*/
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    font-size: 100%;
+    background: whiteSmoke;
+    overflow-y: scroll;
+    color: #2F3438;
+}
+
+body, input, textarea {
+    font: 1em/1.618 "ff-tisa-web-pro", Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+header {
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: .809em;
+}
+
+.wrapper {
+    margin: 0 auto;
+    min-width: 15em;
+    max-width: 32em;
+    padding: 1.618em;
+}
+
+footer[role="contentinfo"] {
+    clear: both;
+    font-size: .809em;
+}
+
+footer p {
+    text-align: center;
+    margin: 0;
+}
+/*-------------------- $LINKS & COLOUR -------------------*/
+
+a {
+    color: #EF7901;
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover {
+    color: #333;
+    border-bottom: 1px solid #EF7901;
+    transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out; 
+    -webkit-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+}
+
+h1, h2, h3,
+h1 a, h2 a, h3 a,
+#logo a, nav a {
+    color: #333;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, 
+#logo a:hover, .title a:hover {
+    border: 0;
+    text-decoration: underline;
+}
+
+/*-------------------- $TYPOGRAPHY --------------*/
+
+p {
+    text-align: justify;
+    text-justify: newspaper;
+    -webkit-hyphens: auto;
+    -webkit-hyphenate-character: "\2010";
+    -webkit-hyphenate-limit-after: 1;
+    -webkit-hyphenate-limit-before: 3;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+b, strong {
+    font-weight: 700;
+    color: #2C2A25;
+}
+
+em, i {
+    font-weight: 400;
+    font-style: italic;
+}
+
+del { text-decoration: line-through; }
+
+h1, h2, h3, h4, pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+h1 { line-height: 1.2; }
+
+h1, #logo { font-size: 2.0225em; }
+
+h2 { font-size: 1.618em; }
+
+h3 { font-size: 1.17em; }
+
+/*-------------------- $SPACING --------------*/
+
+h1,h2,h3,h4,label, time, .post { margin-bottom: .809em; }
+
+ul,ol,dd,p,figure,pre,article,
+input,textarea, select,
+img,blockquote, #archives {
+    margin-bottom: 1.618em;
+}
+
+ul { margin-left: 2.427em; }
+
+/*-------------------- $EXTRAS --------------*/
+
+blockquote {
+    margin: 0 1.618em;
+    border-left: 0.33em solid #EF7901;
+    padding-left: 0.625em;
+    text-indent: -0.4em;
+}
+
+pre {
+    padding: 1em 1.618em;
+    font-family: consolas, courier, monospace;
+    background: #FFF;
+    border: 1px solid #999;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #999;
+    margin-bottom: 1.6em;
+}
+
+time {
+    color: #434343;
+    font-style: italic;
+    font-size: .75em;
+    margin-top: -.809em;
+}
+
+#error {
+    background-color: #FFEBE8;
+    border: 1px solid #999;
+    padding: .809em 0 .809em 2.427em;
+    margin: .809em 0;
+}
+
+#forward { text-align: right; }
+
+.readmore { margin-top: -.65em; }
+
+/*-------------------- $ADMIN -------------------*/
+
+.title, .crud {
+    display: inline;
+    margin: 0;
+}
+
+.crud { float: right; }
+
+.crud > li  {
+    display: inline;
+    padding: 0 0 0 .75em;
+    list-style-type: none;
+    text-align: right;
+    font-size: 1.375em;
+}
+
+/*-------------------- $LOGO & $NAV -------------------*/
+
+#logo { margin-bottom: .35em; }
+
+nav ul { margin: 0; }
+
+nav li {
+    display: inline;
+    padding-right: .35em;
+}
+    .active a#orange, #orange:hover { border-bottom: .125em solid #EF7901; }
+    .active a#green,  #green:hover  { border-bottom: .125em solid #98BF0D; }
+    .active a#blue,   #blue:hover   { border-bottom: .125em solid #01B0EC; }
+    .active a#purple, #purple:hover { border-bottom: .125em solid #C749B6; }
+
+nav ul li:last-child:after { content: ""; }
+	
+nav ul li:after {
+    color: #999;
+    content: "/";
+    margin-left: .375em;
+}
+
+/*-------------------- $FORMS ------------------*/
+
+input[type=text], input[type=password],
+select, textarea {
+    vertical-align: baseline;
+    *vertical-align: middle;
+    resize: none;
+    text-indent: 2%;
+    padding: .618em 2.5%;
+    background: white;
+    border: 1px solid #999;
+    width: 95%;
+}
+
+select:hover, 
+input:hover, textarea:hover,
+input[type=submit]:hover,
+input:focus, textarea:focus
+input[type=submit]:focus { 
+    border-color: #EF7901; 
+}
+
+input[type=submit] {
+    float: right;
+    margin-top: .5em;
+    padding: .5em 1.2em;
+    border: 1px solid #999;
+    background: white;
+    -webkit-appearance: button; 
+    cursor: pointer;
+}
+
+select { width: 100%; }
+
+/*-------------------- $IMAGES ------------------*/
+
+img {
+    width: 100%;
+    max-width: 100%;
+    -ms-interpolation-mode: bicubic; /*I.E. TWEAK*/
+}
+
+/*-------------------- $PRINT -------------------*/
+
+/*-------------------- $MEDIA QUERIES ------------------*/
+
+@media only screen and (min-width: 30em) {
+    #logo {
+        float: left;
+        font-size: inherit;
+    }
+	
+    nav { float: right; }
+	
+    footer p { text-align: right; }
+    
+}
+
+@media only screen and (min-width: 62em) { body { font-size: 1.125em; } }
