@@ -4,7 +4,7 @@ A lightweight MVC-CMS developed in PHP5 to maintain [my website](http://jawraine
 
 # Installation instructions
 
-If you wish to use this framework for whatever reason, bear in mind that although I tried my best, there could be security flaws I have not prevented. Having said that, follow these steps, and enjoy:
+If you wish to use this framework, bear in mind that there could be security flaws I have not prevented. Having said that, follow these steps, and enjoy:
 
 1.    Download source
 2.    Upload blog.sql to your database
