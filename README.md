@@ -11,3 +11,8 @@ If you wish to use this framework, bear in mind that there could be security fla
 3.    Change the two configurable variables in config.php
 4.    Change database settings in libraries/Database.php
 5.    Add "echo $hashed;" in the login function located in libraries/Auth.php (You must enter it in the login form - default username is 'jay')
+6.    All done, enjoy!
+
+# TODO
+
+
