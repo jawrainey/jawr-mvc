@@ -70,7 +70,7 @@ class AdminModel
     /**
      * Deletes an article
      *
-     * @param  string  $title  Location of file to render
+     * @param  string  $uri Delete article by supplied uri
      */
     public function delete($uri)
     {
@@ -80,7 +80,7 @@ class AdminModel
     /**
      * Checks database to see if title is already in use
      *
-     * @param  string  $title  Location of file to render
+     * @param  string  $title  Title to compare against in database
      * @return true or false based on the result
      */
     public function compare_title($title)
